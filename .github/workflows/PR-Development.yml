@@ -54,7 +54,7 @@ jobs:
 
             # Authenticate to org using the URL stored in the text file
             - name: 'Authenticate to Dev Org'
-              run: sfdx auth:jwt:grant --instanceurl "https://login.salesforce.com" --clientid "3MVG9Ud3b0C7KnnhdTRgFNnT63aq5gW_bBcLefB7ckqfdvHBBH9zTcG5Z_q68PkahQhIfJWJobtKIpmB3j0xX" --username "saikiran.salla@cunning-fox-8pcpg0.com" --jwtkeyfile key/server.key
+              run: sfdx auth:jwt:grant --instanceurl "https://login.salesforce.com" --clientid "3MVG9Ud3b0C7KnnhdTRgFNnT63aq5gW_bBcLefB7ckqfdvHBBH9zTcG5Z_q68PkahQhIfJWJobtKIpmB3j0xX" --username "saikiran.salla@cunning-fox-8pcpg0.com" --jwtkeyfile key/server.key --setalias DEV
 
             # We use SFDX Git Delta to create a directory with only the metadata that has changed, this allows us
             # to deploy only those changes, as opposed to deploying the entire branch. This helps reducing deployment times
@@ -91,4 +91,4 @@ jobs:
             #   run: sfdx force:mdapi:deploy -d "changed-sources/destructiveChanges" --checkonly --ignorewarnings 
 
             - name: 'Check-only deploy delta changes - run specified tests'
-              run: sfdx force:source:deploy -p "changed-sources/force-app" --checkonly
+              run: sfdx force:source:deploy -p "changed-sources/force-app" --checkonly --targetusername DEV
