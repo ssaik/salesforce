@@ -4,6 +4,8 @@ public with sharing class AccountController {
     }
 
     public static List<Account> getAccounts() {
-        return [SELECT Id FROM Account];
+        List<Account> accountList = [SELECT Id FROM Account];
+        return accountList;
+        //comment
     }
 }
