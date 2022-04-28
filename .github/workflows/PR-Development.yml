@@ -65,8 +65,7 @@ jobs:
 			
             # Authenticate to org using the URL stored in the text file
             - name: 'Authenticate to Dev Org'
-             run: sfdx auth:jwt:grant --instanceurl "https://login.salesforce.com" --clientid "3MVG9Ud3b0C7KnnhdTRgFNnT63aq5gW_bBcLefB7ckqfdvHBBH9zTcG5Z_q68PkahQhIfJWJobtKIpmB3j0xX" --username "saikiran.salla@cunning-fox-8pcpg0.com" --jwtkeyfile key/server.key --setdefaultdevhubusername --setalias integration"
-            #  run: sfdx auth:sfdxurl:store -f ./SFDX_INTEGRATION_URL.txt -s -a integration
+              run: sfdx auth:jwt:grant --instanceurl "https://login.salesforce.com" --clientid "3MVG9Ud3b0C7KnnhdTRgFNnT63aq5gW_bBcLefB7ckqfdvHBBH9zTcG5Z_q68PkahQhIfJWJobtKIpmB3j0xX" --username "saikiran.salla@cunning-fox-8pcpg0.com" --jwtkeyfile key/server.key --setdefaultdevhubusername --setalias integration"
 
             # We use SFDX Git Delta to create a directory with only the metadata that has changed, this allows us
             # to deploy only those changes, as opposed to deploying the entire branch. This helps reducing deployment times
