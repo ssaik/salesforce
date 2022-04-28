@@ -51,17 +51,6 @@ jobs:
             # Install SFDX scanner
             - name: 'Installing SFDX scanner'
               run: sfdx plugins:install @salesforce/sfdx-scanner
-
-            #########################
-            # Get the Integration Org SFDX URL and store it in a text file
-            #- name: 'Populate auth file with SFDX_URL secret of integration org'
-            #  shell: bash
-            #  run: |
-            #      echo ${{ secrets.SFDX_INTEGRATION_URL}} > ./SFDX_INTEGRATION_URL.txt
-            # Authenticate to org using the URL stored in the text file
-            #- name: 'Authenticate to Integration Org'
-            #  run: sfdx auth:sfdxurl:store -f ./SFDX_INTEGRATION_URL.txt -s -a integration
-
 			
             # Authenticate to org using the URL stored in the text file
             - name: 'Authenticate to Dev Org'
