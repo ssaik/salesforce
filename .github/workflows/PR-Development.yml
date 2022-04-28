@@ -20,13 +20,17 @@ jobs:
         runs-on: ubuntu-latest
         if: ${{ github.actor != 'dependabot[bot]' }}
         steps:
-		
+            # Install nodejs
+            - uses: actions/setup-node@v2
+              with:
+                node-version: '14'
+
             # Checkout the source code
             - name: 'Checkout source code'
               uses: actions/checkout@v2
               with:
                 fetch-depth: 0
-				
+
             # Install Salesforce CLI
             - name: 'Install Salesforce CLI'
               run: |
