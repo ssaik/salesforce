@@ -1,12 +1,11 @@
 # Unique name for this workflow
-name: Validate PR on integration branch
+name: Deploy PR on dev branch
 
 # Definition when the workflow should run
 on:
-    pull_request:
+    push:
       # This workflow will run when a pull request is opened, or when a commit is pushed
       # to a branch that has an existing pull request
-      types: [opened, synchronize]
       branches: [ dev ]
       # We only care about changes to the force-app directory. This prevents the job from running
       # when changing non-salesforce files (like this yml file).
@@ -16,7 +15,7 @@ on:
 
 # Jobs to be executed
 jobs:
-    validate-deployment-on-integration-org:
+    validate-deployment-on-dev-org:
         runs-on: ubuntu-latest
         if: ${{ github.actor != 'dependabot[bot]' }}
         steps:
@@ -44,13 +43,6 @@ jobs:
               run: | 
                   echo y | sfdx plugins:install sfdx-git-delta
                   sfdx plugins 
-            # Install java
-            - name: 'Installing java'
-              run: sudo apt-get install openjdk-8-jdk
-
-            # Install SFDX scanner
-            - name: 'Installing SFDX scanner'
-              run: sfdx plugins:install @salesforce/sfdx-scanner
 
             # Authenticate to org using the URL stored in the text file
             - name: 'Authenticate to Dev Org'
@@ -62,17 +54,6 @@ jobs:
               run: | 
                   mkdir changed-sources
                   sfdx sgd:source:delta --to "HEAD" --from "HEAD^" --output changed-sources/ --generate-delta --source force-app/ 
-            # Scan the code in the delta directory by using sfdx scanner. Output the results of the scan in a new file
-            # called apexScanResults.sarif
-            - name: 'Scan code'
-              run: |
-                  cd changed-sources
-                  sfdx scanner:run --format sarif --target './**/*.cls' --category "Design,Best Practices,Performance" --outfile 'apexScanResults.sarif'  
-                  cd ..
-            - name: Upload SARIF file
-              uses: github/codeql-action/upload-sarif@v1
-              with:
-                sarif_file: changed-sources/apexScanResults.sarif
 
             # We do a check-only depploy and we only run the tests specified in the PR
             # If the env variable does not equal 'all', we know that there is a list of
@@ -90,5 +71,5 @@ jobs:
             # - name: 'Deploy destructive changes (if any)'
             #   run: sfdx force:mdapi:deploy -d "changed-sources/destructiveChanges" --checkonly --ignorewarnings 
 
-            - name: 'Check-only deploy delta changes - run specified tests'
-              run: sfdx force:source:deploy -p "changed-sources/force-app" --checkonly --targetusername DEV --testlevel RunLocalTests
+            - name: 'Deploy delta changes - run specified tests'
+              run: sfdx force:source:deploy -p "changed-sources/force-app" --targetusername DEV --testlevel RunLocalTests
