@@ -91,4 +91,4 @@ jobs:
             #   run: sfdx force:mdapi:deploy -d "changed-sources/destructiveChanges" --checkonly --ignorewarnings 
 
             - name: 'Check-only deploy delta changes - run specified tests'
-              run: sfdx force:source:deploy -p "changed-sources/force-app" --checkonly --targetusername DEV
+              run: sfdx force:source:deploy -p "changed-sources/force-app" --checkonly --targetusername DEV --testlevel RunLocalTests
