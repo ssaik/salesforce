@@ -7,6 +7,6 @@ public with sharing class AccountController {
         List<Account> accountList = [SELECT Id FROM Account];
         system.debug('------');
         return accountList;
-        //comment//////
+        //comment//////xx
     }
 }
