@@ -5,6 +5,7 @@ public class AccountControllerTest {
         Account acc = new Account();
         acc.Name = 'name';
         insert acc;
+        ///
     }
 
     @isTest
