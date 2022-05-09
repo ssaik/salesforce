@@ -50,7 +50,7 @@ jobs:
               run: |
                   echo $PR_BODY > ./pr_body.txt
                   node ./parsePR.js              
-                  TESTS=$(cat testsToRun.txt)       
+                  TESTS=$(cat testsToRun.txt)
                   echo "APEX_TESTS=$TESTS" >> $GITHUB_ENV
 
             # Install Salesforce CLI
