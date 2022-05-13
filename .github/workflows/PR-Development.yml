@@ -25,23 +25,11 @@ jobs:
               with:
                 node-version: '14'
 
-            - name: Create comment
-              uses: peter-evans/create-or-update-comment@v2
-              with:
-                issue-number: 1
-                body: |
-                  This is a multi-line test comment
-                  - With GitHub **Markdown** :sparkles:
-                  - Created by [create-or-update-comment][1]
-
-                  [1]: https://github.com/peter-evans/create-or-update-comment
-                reactions: '+1'
-
-            - uses: actions/github-script@v3
+            - uses: actions/github-script@v5
               with:
                 github-token: ${{secrets.GITHUB_TOKEN}}
                 script: |
-                  github.issues.createComment({
+                  github.rest.issues.createComment({
                     issue_number: context.issue.number,
                     owner: context.repo.owner,
                     repo: context.repo.repo,
