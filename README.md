@@ -1,18 +1,49 @@
-# Salesforce DX Project: Next Steps
+# Salesforce Development
+
+## Following tools are required
+- [Salesforce CLI](https://developer.salesforce.com/tools/sfdxcli)
+- [VS Code](https://code.visualstudio.com/)
+- [Git](https://git-scm.com/downloads)
+
+## Clone the existing repo
+- [Link to the Saikiran Repo](asdasd)
+```bash
+> git clone <>
+```
+- Cloned repo is a SFDX Project, Following are the documentions to start development.
+
+## Authorize to an Org
+- Open the cloned repo in VS Code
+- `ctrl+shift+p` and select `SFDX: Authorize an Org`
+- Select sandbox and enter your credentials to authorize to an org (Sandbox)
+
+## Create a brach and push the changes
+Now you are creating a new branch for each story, For example your story name is `SFORCE-1234` then your branch name is `SFORCE-1234`
+- Switch to `sfdevelopment` branch
+```bash
+> git checkout sfdevelopment
+```
+- create new branch
+```bash
+> git checkout -b SFORCE-1234
+```
+- Once the development is completed, add the files to the branch then commit the changes
+```bash
+> git add .
+> git commit -m "SFORCE-1234 Story description"
+```
+- Push the changes to the branch
+```bash
+> git push
+```
+## Create the Pull Request
+- Login to [Saikiran Github](https://Saikiran.github.com)
+- Go to `Pull Request` and create new pull request
+- Add a reviewer
+- Click and create pull request
+
+## Approve and Merge
+- Reviewer will look the PR and approves/rejects based on the validation results and code review
+- Once the PR is approved, Code is deployed to the Dev/QA sandbox.
 
 Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
-
-## How Do You Plan to Deploy Your Changes?
-
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
-
-## Configure Your Salesforce DX Project
-
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
