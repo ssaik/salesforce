@@ -53,6 +53,6 @@ jobs:
                   git status
                   git config --global user.email "saikiran.salla@gmail.com"
                   git config --global user.name "SaiSai"
-                  git remote set-url origin https://x-access-token:${{ secrets.SALESFORCE_REPO_TOKEN }}@github.com/ssaik/salesforce.git
+                  git remote set-url --push origin https://saikiran.salla@gmail.com:${{ secrets.SALESFORCE_REPO_TOKEN }}@github.com/ssaik/salesforce.git
                   git commit -am "Updates from Production"
                   git push
