@@ -48,6 +48,6 @@ jobs:
             - name: 'Pull latest metadata from Prod'
               run: |
                   git checkout main
-                  sfdx force:source:retrieve --manifest ./manifest/package.xml -u DEV
+                  sfdx force:source:retrieve -x ./manifest/package.xml -u DEV
                   echo "SS"
                   git status
