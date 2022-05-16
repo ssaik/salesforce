@@ -56,7 +56,8 @@ jobs:
                   echo "SS1"
                   git config --global user.name "SaiSai"
                   echo "SS2"
-                  git commit -am "Updates from Production"
+                  git add .
+                  git commit -m "Updates from Production"
                   echo "SS3"
                   git status
                   echo "SS4"
