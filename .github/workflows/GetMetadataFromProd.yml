@@ -52,6 +52,11 @@ jobs:
                   git checkout main
                   git pull
                   sfdx force:source:retrieve -x ./manifest/package.xml -u DEV
+                  echo "SS"
+                  git config user.email "saikiran.salla@gmail.com"
+                  echo "SS1"
+                  git config user.name "SaiSai"
+                  echo "SS2"
                   git add .
                   git commit -m "Updates from Production"
                   echo "SS3"
