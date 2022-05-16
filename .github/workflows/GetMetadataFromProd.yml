@@ -45,6 +45,7 @@ jobs:
               run: sfdx auth:jwt:grant --instanceurl "https://login.salesforce.com" --clientid "3MVG9Ud3b0C7KnnhdTRgFNnT63aq5gW_bBcLefB7ckqfdvHBBH9zTcG5Z_q68PkahQhIfJWJobtKIpmB3j0xX" --username "saikiran.salla@cunning-fox-8pcpg0.com" --jwtkeyfile key/server.key --setalias DEV
 
             # Get latest metadata from Prod
+            - uses: actions/checkout@v2
             - name: 'Pull latest metadata from Prod'
               run: |
                   git checkout main
@@ -53,6 +54,5 @@ jobs:
                   git status
                   git config --global user.email "saikiran.salla@gmail.com"
                   git config --global user.name "SaiSai"
-                  git remote set-url --push origin https://saikiran.salla@gmail.com:${{ secrets.SALESFORCE_REPO_TOKEN }}@github.com/ssaik/salesforce.git
                   git commit -am "Updates from Production"
                   git push
