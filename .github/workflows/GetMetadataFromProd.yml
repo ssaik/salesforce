@@ -50,6 +50,8 @@ jobs:
                   date "+%D" > todayDate.txt
                   TESTSXX=$(cat todayDate.txt)
                   echo "APEX_TESTSXX=$TESTSXX" >> $GITHUB_ENV
+                  git status
+                  git fetch
                   git checkout master
                   git checkout -b ${{env.APEX_TESTSXX}}
                   git status
