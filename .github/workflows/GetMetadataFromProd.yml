@@ -52,7 +52,12 @@ jobs:
                   sfdx force:source:retrieve -x ./manifest/package.xml -u DEV
                   echo "SS"
                   git config --global user.email "saikiran.salla@gmail.com"
+                  echo "SS1"
                   git config --global user.name "SaiSai"
+                  echo "SS2"
                   git commit -am "Updates from Production"
+                  echo "SS3"
                   git status
+                  echo "SS4"
                   git push
+                  echo "SS5"
