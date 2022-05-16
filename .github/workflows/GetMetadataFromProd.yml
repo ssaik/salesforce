@@ -55,7 +55,7 @@ jobs:
                   echo "ss"
                   git fetch
                   echo "ss2"
-                  git checkout master
+                  git checkout main
                   echo "ss3"
                   git checkout -b ${{env.APEX_TESTSXX}}
                   git status
