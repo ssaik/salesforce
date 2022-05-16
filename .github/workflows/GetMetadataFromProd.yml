@@ -46,4 +46,10 @@ jobs:
 
             # Get latest metadata from Prod
             - name: 'Pull latest metadata from Prod'
-              run: npm -v
+              run: |
+                  date "+%D" > todayDate.txt
+                  TESTSXX=$(cat testsToRun.txt)
+                  echo "APEX_TESTSXX=$TESTSXX" >> $GITHUB_ENV
+                  git checkout master
+                  git checkout -b ${{env.APEX_TESTSXX}}
+                  git status
