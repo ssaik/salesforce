@@ -51,3 +51,5 @@ jobs:
                   sfdx force:source:retrieve -x ./manifest/package.xml -u DEV
                   echo "SS"
                   git status
+                  git add -am "Updates from Production"
+                  git push
