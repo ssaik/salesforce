@@ -47,15 +47,6 @@ jobs:
             # Get latest metadata from Prod
             - name: 'Pull latest metadata from Prod'
               run: |
-                  date "+%D" > todayDate.txt
-                  TESTSXX=$(cat todayDate.txt)
-                  echo "APEX_TESTSXX=$TESTSXX" >> $GITHUB_ENV
-                  echo ${{env.APEX_TESTSXX}}
-                  git status
-                  echo "ss"
-                  git fetch
-                  echo "ss2"
                   git checkout main
-                  echo "ss3"
-                  git checkout -b ${{env.APEX_TESTSXX}}
-                  git status
+                  sfdx force:source:retrieve --manifest /manifest/package.xml
+                  echo "SS"

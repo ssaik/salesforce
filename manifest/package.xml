@@ -138,10 +138,6 @@
 	</types>
 	<types>
 		<members>*</members>
-		<name>WorkflowFlowAction</name>
-	</types>
-	<types>
-		<members>*</members>
 		<name>WorkflowRule</name>
 	</types>
 	<version>53.0</version>
