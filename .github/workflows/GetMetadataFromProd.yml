@@ -49,9 +49,10 @@ jobs:
             - name: 'Pull latest metadata from Prod'
               run: |
                   git checkout main
+                  git pull
                   sfdx force:source:retrieve -x ./manifest/package.xml -u DEV
                   echo "SS"
-                  git config --global user.email "saikiran.salla@gmail.com"
+                  git config --global user.email "ssaik@users.noreply.github.com"
                   echo "SS1"
                   git config --global user.name "SaiSai"
                   echo "SS2"
