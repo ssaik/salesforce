@@ -3,8 +3,7 @@ name: Refresh data from prod
 
 # Definition when the workflow should run
 on:
-    pull_request:
-      branches: [ main ]
+    workflow_dispatch
             
 
 # Jobs to be executed
