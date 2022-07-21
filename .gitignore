@@ -40,3 +40,6 @@ $RECYCLE.BIN/
 
 # Local environment variables
 .env
+
+# Other files
+sfdx-linux-x64.tar.xz
