@@ -38,6 +38,8 @@ jobs:
 
             # Get latest metadata from Prod
             - uses: actions/checkout@v3
+              with:
+                token: ${{secrets.SALESFORCE_REPO_TOKEN}}
             - run: |
                   git pull
                   sfdx force:source:retrieve -x ./manifest/package.xml -u DEV
