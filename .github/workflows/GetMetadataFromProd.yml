@@ -38,10 +38,7 @@ jobs:
 
             # Get latest metadata from Prod
             - uses: actions/checkout@v3
-              with:
-                token: ${{secrets.PAT}}
             - run: |
-                  git checkout main
                   git pull
                   sfdx force:source:retrieve -x ./manifest/package.xml -u DEV
                   echo "SS"
